@@ -1,0 +1,29 @@
+<app-filter-sort [criterias]="criterias"
+                 (changeCity)="updateCity($event)"
+                 (changeSorting)="updateSorting($event)">
+</app-filter-sort>
+
+<hr class="mx-4" >
+
+<div class="container card-deck pt-4 mx-0" *ngIf="!fullList && !selectedCity">
+    <app-tutor-card class="col-lg-3 px-0 pb-5"
+                    *ngFor="let tutor of (tutors | byCity: selectedCity)"
+                    [selectedCity]="selectedCity"
+                    [selectedSorting]="selectedSorting"
+                    [tutor]="tutor"></app-tutor-card>
+</div>
+
+<div class="container card-deck pt-4 mx-0"
+    *ngIf="fullList || selectedCity">
+
+    <app-tutor-card class="col-lg-3 px-0 pb-5"
+                    *ngFor="let tutor of (allTutors | byCity: selectedCity)"
+                    [selectedCity]="selectedCity"
+                    [selectedSorting]="selectedSorting"
+                    [tutor]="tutor"></app-tutor-card>
+</div>
+
+<div class="row py-5 d-flex justify-content-center"
+     *ngIf="!fullList && !selectedCity">
+    <button class="btn btn-light" (click)="moreTutors()">{{ btnLabel }}</button>
+</div>

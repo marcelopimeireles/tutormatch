@@ -1,0 +1,19 @@
+  <div class="card">
+    <div class="card-image-top">
+      <img [src]="defaults.imgTutor" [alt]="tutor.name">
+    </div>
+    <div class="card-body bg-light w-100">
+      <h5 class="card-title">{{ tutor.name }}</h5>
+      <h6>{{ defaults.lblCity }}</h6>
+      <p class="card-text"><span class="badge p-2">{{ tutor.city }}</span></p>
+    </div>
+    <div class="card-footer bt-none">
+        <h6>{{ defaults.lblStudents }}</h6>
+        <div class="row px-2">
+          <img *ngFor="let student of tutor.students"
+                class="rounded-circle bg-white mx-2 p-1"
+                [src]="defaults.imgStudent" [alt]="student"
+                data-toggle="tooltip" [title]="student">
+        </div>
+    </div>
+  </div>

@@ -1,0 +1,23 @@
+<div class="row px-4 py-5">
+    <label class="pr-2"><span>{{ lblFilter }}</span></label>
+    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-light px-4"
+              *ngFor="let filter of criterias.filters; let i = index"
+              [ngClass]="{'active': selectedFilter === filter}">
+          <input type="radio" name="filterby" id="{{ filter }}"
+                 (click)="getSelectedCity(filter)"
+                 autocomplete="off" [attr.checked]="selectedFilter === filter ? '' : null">{{ filter }}
+        </label>
+      </div>
+
+    <label class="pl-5 pr-2"><span>{{ lblSort }}</span></label>
+    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-light px-4"
+               *ngFor="let sort of criterias.sorts; let i = index"
+               [ngClass]="{'active': selectedSort === sort}">
+          <input type="radio" name="sortby" id="{{ sort }}"
+                 (click)="getSelectedSorting(sort)"
+                 autocomplete="off" [attr.checked]="selectedSort === sort ? '' : null"> {{ sort }}
+        </label>
+      </div>
+  </div>

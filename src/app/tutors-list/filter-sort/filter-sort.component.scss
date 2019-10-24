@@ -1,0 +1,32 @@
+.row {
+
+    & > label > span {
+        color: #212b3a;
+        font-family: 'Avenir';
+        font-size: 14px;
+        font-weight: 500;
+        vertical-align: middle;
+    }
+
+    .btn-group > label {
+        font-family: 'Avenir';
+        font-size: 12px;
+        font-weight: 500;
+
+        &.btn-light {
+            color: #212b3a;
+            border-color: #bdbdbd;
+            background-color: #dadada;
+
+            &.active {
+                background-color: #009c38;
+                color: white;
+            }
+
+            &:hover {
+                background-color: darken(#009c38, 10%);
+                color: white;
+            }
+        }
+    }
+}
